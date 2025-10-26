@@ -32,20 +32,24 @@ function Projects() {
   return (
     <section 
       id="projects" 
-      className="w-full min-h-screen flex flex-col items-center justify-center px-4 sm:px-6"
+      className="w-full min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 py-16"
     > 
-      <div className="text-center mb-12 w-full">
+      <div className="flex flex-col items-center justify-center text-center mb-16">
         <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-6">
           My <span className="text-fuchsia-300">Projects</span>
         </h2>
-        <p className="text-lg text-gray-400 max-w-2xl mx-auto px-4">
-          Here are some of the projects I've worked on recently. Click on any project to view a live demo.
+        <p className="text-lg text-gray-400 max-w-2xl text-center leading-relaxed">
+          Here are some of the projects I've worked on recently. <br />
+          Click on any project to view a live demo.
         </p>
       </div>
 
+      {/* إضافة مسافة إضافية هنا */}
+      <div className="mb-12"></div>
+
       {/* Projects Grid */}
       <div className="w-full flex justify-center">
-        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center w-full max-w-6xl">
+        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 justify-items-center w-full max-w-6xl">
           {projects.map((project, index) => (
             <motion.li
               key={project.id}
@@ -56,7 +60,7 @@ function Projects() {
               className="w-full max-w-xs sm:max-w-sm"
             >
               <Link href={project.demo} target="_blank" rel="noopener noreferrer">
-                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-b from-gray-800 to-black shadow-md hover:shadow-fuchsia-400/40 transition duration-500 mx-auto">
+                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-b from-gray-800 to-black shadow-md hover:shadow-fuchsia-400/40 transition duration-500 mx-auto group">
                   
                   {/* Project Image */}
                   <div className="relative h-56 w-full">
@@ -75,9 +79,9 @@ function Projects() {
                   </div>
 
                   {/* Project Info */}
-                  <div className="p-5 text-center">
-                    <h3 className="text-lg font-semibold text-fuchsia-300 mb-2">{project.title}</h3>
-                    <p className="text-gray-300 text-sm leading-relaxed">{project.description}</p>
+                  <div className="p-6 text-center">
+                    <h3 className="text-lg font-semibold text-fuchsia-300 mb-3">{project.title}</h3>
+                    <p className="text-gray-300 text-sm leading-relaxed text-center">{project.description}</p>
                   </div>
                 </div>
               </Link>

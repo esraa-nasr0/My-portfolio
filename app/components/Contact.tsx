@@ -44,14 +44,14 @@ export default function Contact() {
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4">
           Get in <span className="text-fuchsia-300">Touch</span>
         </h2>
-        <p className="text-sm sm:text-base text-gray-400">
+        <p className="text-sm sm:text-base  text-gray-400 ">
           Feel free to reach out to me via any of the following platforms:
         </p>
       </div>
 
       {/* الكروت في المنتصف */}
-      <div className="flex flex-col items-center justify-center w-full">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-sm sm:max-w-2xl lg:max-w-3xl">
+      <div className="flex flex-col items-center justify-center w-full  ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-14 sm:gap-6 lg:gap-14 max-w-sm sm:max-w-2xl lg:max-w-3xl mt-9">
           {CONTACTS.map((contact) => (
             <motion.a
               key={contact.id}
