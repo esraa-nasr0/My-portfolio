@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import { motion } from "framer-motion";
 import {
@@ -23,63 +24,57 @@ const skills = [
   { name: "Bootstrap", icon: <SiBootstrap className="text-purple-500" />, desc: "CSS framework" },
   { name: "Tailwind", icon: <SiTailwindcss className="text-sky-500" />, desc: "Utility CSS" },
   { name: "JavaScript", icon: <SiJavascript className="text-yellow-400" />, desc: "Dynamic scripting" },
-  { name: "TypeScript", icon: <SiTypescript className="text-blue-600" />, desc: "Typed JS" },
-  { name: "React.js", icon: <FaReact className="text-cyan-400" />, desc: " framework" },
-  { name: "Next.js", icon: <SiNextdotjs className="text-black dark:text-white" />, desc: "React framework" },
+  { name: "TypeScript", icon: <SiTypescript className="text-blue-500" />, desc: "Typed JS" },
+  { name: "React.js", icon: <FaReact className="text-cyan-400" />, desc: "UI library" },
+  { name: "Next.js", icon: <SiNextdotjs className="text-white" />, desc: "React framework" },
   { name: "jQuery", icon: <SiJquery className="text-blue-400" />, desc: "JS library" },
   { name: "Git", icon: <FaGitAlt className="text-red-500" />, desc: "Version control" },
-  { name: "Github", icon: <FaGithub className="text-gray-800 dark:text-gray-200" />, desc: "Code hosting" },
+  { name: "Github", icon: <FaGithub className="text-gray-200" />, desc: "Code hosting" },
 ];
 
 export default function Skills() {
   return (
-    <section
-      id="skills"
-      className="w-full min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-12 scroll-mt-24"
-    >
-      <div className="max-w-6xl mx-auto w-full">
-        <div className="text-center mb-12 px-2 sm:px-0">
-          <motion.h2 
+    <section id="skills" className="section">
+      <div className="section-inner">
+        <div className="mb-10 text-center sm:mb-12">
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white"
+            className="section-title"
           >
             My <span className="text-fuchsia-300">Skills</span>
           </motion.h2>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
-            className="mt-4 text-base sm:text-lg text-gray-400 px-2 sm:px-0"
+            className="section-subtitle mx-auto"
           >
             Here are some of the technologies and tools I work with:
           </motion.p>
         </div>
 
-        {/* Skills Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 justify-items-center px-2 sm:px-0">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-4 lg:gap-5">
           {skills.map((skill, index) => (
             <motion.div
-              key={index}
+              key={skill.name}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
-              whileHover={{ y: -4, scale: 1.05 }}
-              className="flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 text-center w-full h-40 sm:h-48 bg-transparent"
+              transition={{ duration: 0.45, delay: index * 0.04 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -4, scale: 1.03 }}
+              className="flex h-36 flex-col items-center justify-center rounded-2xl border border-white/5 bg-white/[0.03] p-3 text-center transition-shadow duration-300 hover:border-fuchsia-400/20 hover:shadow-md hover:shadow-fuchsia-500/10 sm:h-40 sm:p-4 md:h-44"
             >
-              {/* Icon */}
-              <div className="text-4xl sm:text-5xl mb-3 sm:mb-4">{skill.icon}</div>
-
-              {/* Name */}
-              <h2 className="text-sm sm:text-base font-semibold mb-2 mt-2 sm:mt-4 bg-gradient-to-r from-fuchsia-300 via-purple-300 to-pink-300 bg-clip-text text-transparent">
+              <div className="mb-2 text-3xl sm:mb-3 sm:text-4xl md:text-5xl">
+                {skill.icon}
+              </div>
+              <h3 className="bg-gradient-to-r from-fuchsia-300 via-purple-300 to-pink-300 bg-clip-text text-xs font-semibold text-transparent sm:text-sm md:text-base">
                 {skill.name}
-              </h2>
-
-              {/* Description */}
-              <p className="text-gray-600 dark:text-gray-300 text-xs mt-1 sm:mt-2 font-semibold">
+              </h3>
+              <p className="mt-1 text-[10px] font-medium text-gray-400 sm:mt-1.5 sm:text-xs">
                 {skill.desc}
               </p>
             </motion.div>

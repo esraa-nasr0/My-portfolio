@@ -1,8 +1,9 @@
-"use client"
-import React from 'react'
+"use client";
+
+import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import Link from 'next/link';
+import Link from "next/link";
 
 const projects = [
   {
@@ -22,66 +23,66 @@ const projects = [
   {
     id: 3,
     title: "Gaming Boi",
-    description: "A gaming website with a sleek design and interactive features.",
+    description:
+      "A gaming website with a sleek design and interactive features.",
     image: "/gaming.png",
     demo: "https://gaming-boi-eli4-amxajup02-esraa-nasrs-projects.vercel.app/",
   },
-]
+];
 
 function Projects() {
   return (
-    <section 
-      id="projects" 
-      className="w-full min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 py-16"
-    > 
-      <div className="flex flex-col items-center justify-center text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-6">
-          My <span className="text-fuchsia-300">Projects</span>
-        </h2>
-        <p className="text-lg text-gray-400 max-w-2xl text-center leading-relaxed">
-          Here are some of the projects I've worked on recently. <br />
-          Click on any project to view a live demo.
-        </p>
-      </div>
+    <section id="projects" className="section">
+      <div className="section-inner">
+        <div className="mb-10 text-center sm:mb-12 lg:mb-14">
+          <h2 className="section-title">
+            My <span className="text-fuchsia-300">Projects</span>
+          </h2>
+          <p className="section-subtitle mx-auto">
+            Here are some of the projects I&apos;ve worked on recently. Click on
+            any project to view a live demo.
+          </p>
+        </div>
 
-      {/* إضافة مسافة إضافية هنا */}
-      <div className="mb-12"></div>
-
-      {/* Projects Grid */}
-      <div className="w-full flex justify-center">
-        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 justify-items-center w-full max-w-6xl">
+        <ul className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
           {projects.map((project, index) => (
             <motion.li
               key={project.id}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
+              transition={{ duration: 0.5, delay: index * 0.15 }}
               viewport={{ once: true }}
-              className="w-full max-w-xs sm:max-w-sm"
+              className="w-full"
             >
-              <Link href={project.demo} target="_blank" rel="noopener noreferrer">
-                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-b from-gray-800 to-black shadow-md hover:shadow-fuchsia-400/40 transition duration-500 mx-auto group">
-                  
-                  {/* Project Image */}
-                  <div className="relative h-56 w-full">
+              <Link
+                href={project.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block h-full"
+              >
+                <div className="group relative mx-auto h-full max-w-md overflow-hidden rounded-2xl bg-gradient-to-b from-gray-800 to-black shadow-md transition duration-500 hover:shadow-fuchsia-400/40 md:max-w-none">
+                  <div className="relative h-48 w-full sm:h-52 md:h-56">
                     <Image
                       src={project.image}
                       alt={project.title}
                       fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-110"
                     />
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
-                      <span className="min-w-[150px] h-12 flex items-center justify-center rounded-full bg-gradient-to-r from-fuchsia-400 via-purple-400 to-pink-400 text-white font-medium shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300">
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 transition duration-500 group-hover:opacity-100">
+                      <span className="flex h-11 min-w-[140px] items-center justify-center rounded-full bg-gradient-to-r from-fuchsia-400 via-purple-400 to-pink-400 px-6 text-sm font-medium text-white shadow-md sm:h-12 sm:min-w-[150px] sm:text-base">
                         View Demo
                       </span>
                     </div>
                   </div>
 
-                  {/* Project Info */}
-                  <div className="p-6 text-center">
-                    <h3 className="text-lg font-semibold text-fuchsia-300 mb-3">{project.title}</h3>
-                    <p className="text-gray-300 text-sm leading-relaxed text-center">{project.description}</p>
+                  <div className="p-5 text-center sm:p-6">
+                    <h3 className="mb-2 text-base font-semibold text-fuchsia-300 sm:mb-3 sm:text-lg">
+                      {project.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-gray-300">
+                      {project.description}
+                    </p>
                   </div>
                 </div>
               </Link>
@@ -90,7 +91,7 @@ function Projects() {
         </ul>
       </div>
     </section>
-  )
+  );
 }
 
-export default Projects
+export default Projects;
